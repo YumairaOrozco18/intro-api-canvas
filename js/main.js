@@ -107,6 +107,7 @@ function drawLineas() {
     if (canvasCurvas_cuadraticas_Bezier.getContext) {
       // Ejemplo de curvas cuadráticas
       ctx.strokeStyle = "brown";
+      ctx.lineWidth = 3;
       ctx.beginPath();
       ctx.moveTo(75, 25);
       ctx.quadraticCurveTo(25, 25, 25, 62.5);
@@ -124,6 +125,7 @@ function drawLineas() {
     if (canvasCurvas_cubicas_Bezier.getContext) {
       // Ejemplo de curvas cúbicas
       ctx.fillStyle = "red";
+      ctx.lineWidth = 3;
       ctx.beginPath();
       ctx.moveTo(75, 40);
       ctx.bezierCurveTo(75, 37, 70, 25, 50, 25);
@@ -141,6 +143,7 @@ function drawLineas() {
     const ctx = canvasCombinaciones.getContext("2d");
     
     if (canvasCombinaciones.getContext) {
+      ctx.lineWidth = 2;
       roundedRect(ctx, 5, 5, 140, 140, 15); //cuadrado externo
       roundedRect(ctx, 10, 10, 130, 130, 9); // cuadrado interno
       roundedRect(ctx, 20, 30, 45, 30, 10); // rectangulo esquina superior izquierda
@@ -149,11 +152,13 @@ function drawLineas() {
       roundedRect(ctx, 100, 90, 25, 45, 10); // rectangulo esquina inferior derecha
   
       ctx.beginPath();
+      ctx.fillStyle = "yellow";
       ctx.arc(25, 20, 8, Math.PI / 7, -Math.PI / 7, false); //pacman
-      ctx.lineTo(14, 20);
+      ctx.lineTo(14, 20); //margen
       ctx.fill();
   
       for (let i = 0; i < 8; i++) {
+        ctx.fillStyle = "black";
         ctx.fillRect(40 + i * 12, 20, 2, 2); // linea punteada superior (margen, separacion puntos, altura, largo punto, alto puntos)
       }
   
@@ -166,6 +171,7 @@ function drawLineas() {
       }
   
       ctx.beginPath(); // fantasma
+      ctx.fillStyle = "blue";
       ctx.moveTo(60, 105); //primer punta punta 
       ctx.lineTo(60, 90); //curva izquierda 
       ctx.bezierCurveTo(60, 83, 65, 78, 70, 78);
@@ -224,6 +230,7 @@ function drawLineas() {
       const circle = new Path2D();
       circle.arc(100, 35, 25, 0, 2 * Math.PI);
   
+      ctx.lineWidth = 2;
       ctx.strokeStyle = "gray";
       ctx.stroke(rectangle);
       ctx.fillStyle = "gray";
